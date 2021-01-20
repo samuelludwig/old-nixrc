@@ -58,7 +58,7 @@
   programs.neovim = {
     enable = true;
     package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ../configs/nvim/init.vim;
+    extraConfig = builtins.readFile ../configs/neovim/init.vim;
   };
 
   programs.bash = {
