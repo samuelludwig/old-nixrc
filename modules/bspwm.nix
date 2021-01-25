@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     bspwm
     nitrogen
-    skhkd
+    sxhkd
   ];
 
   home.file = {
