@@ -4,5 +4,17 @@
     alacritty
     libsixel
   ];
+
   xdg.configFile."alacritty/alacritty.yml".source = ../configs/terminal/alacritty.yml;
+
+  programs.alacritty = {
+    enable = true;
+    settings = {
+      font.size = 16;
+      font.normal.family = "Inconsolata Nerd Font";
+      font.bold.family = "Inconsolata Nerd Font";
+      font.italic.family = "Inconsolata Nerd Font";
+    };
+  };
+
 }

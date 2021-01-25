@@ -12,23 +12,16 @@
     # Development tools
     tmux
     jq
-    git-crypt
     gcc10
-    python3
     unzip
     ninja
     go
     jdk11
     gopls
-    lazygit
 
     # Files
     #zstd
     #restic
-
-    # Media
-    discord
-    firefox
 
     # System introspection tools
     htop
@@ -38,28 +31,6 @@
     # Fonts
     inconsolata-nerdfont
   ];
-
-  programs.git = {
-    enable = true;
-    userEmail = "SLudwig.dev@gmail.com";
-    userName = "samuelludwig";
-  };
-
-  programs.alacritty = {
-    enable = true;
-    settings = {
-      font.size = 16;
-      font.normal.family = "Inconsolata Nerd Font";
-      font.bold.family = "Inconsolata Nerd Font";
-      font.italic.family = "Inconsolata Nerd Font";
-    };
-  };
-
-  programs.neovim = {
-    enable = true;
-    package = pkgs.neovim-nightly;
-    extraConfig = builtins.readFile ../configs/neovim/init.vim;
-  };
 
   programs.bash = {
     enable = true;

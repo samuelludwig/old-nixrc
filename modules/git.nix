@@ -6,8 +6,17 @@
     gitAndTools.gh
     gitAndTools.git-crypt
     pre-commit
+    lazygit
   ];
+
   home.file.".config/git/ignore".text = ''
     tags
   '';
+
+  programs.git = {
+    enable = true;
+    userEmail = "SLudwig.dev@gmail.com";
+    userName = "samuelludwig";
+  };
+
 }
