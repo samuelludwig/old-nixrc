@@ -1,7 +1,15 @@
+
 { config, pkgs, libs, ... }:
 {
   home.packages = with pkgs; [
-    # Fonts
-    inconsolata-nerdfont
+    # Go
+    go
+    gopls
+
+    # C
+    gcc10
+
+    # Java
+    jdk11
   ];
 }

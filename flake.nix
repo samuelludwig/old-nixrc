@@ -43,6 +43,8 @@
               ./modules/media.nix
               ./modules/packages.nix
               ./modules/alacritty.nix
+              ./modules/languages.nix
+              ./modules/cli-tools.nix
             ];
             # programs.zsh.initExtra = builtins.readFile ./configs/zsh/nixos-desktop_zshrc.zsh;
           };
