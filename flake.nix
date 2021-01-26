@@ -37,12 +37,12 @@
             imports = [
               ./modules/bspwm.nix
               ./modules/home-manager.nix
-              ./modules/alacritty.nix
               ./modules/python.nix
               ./modules/neovim.nix
               ./modules/git.nix
               ./modules/media.nix
               ./modules/packages.nix
+              ./modules/alacritty.nix
             ];
             # programs.zsh.initExtra = builtins.readFile ./configs/zsh/nixos-desktop_zshrc.zsh;
           };
