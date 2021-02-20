@@ -27,9 +27,9 @@
       ll = "exa --long --classify --all --header --git";
       n = "nvim -O";
       hms = "home-manager switch";
-      gs = "git status"
-      ga = "git add"
-      gc = "git commit"
+      gs = "git status";
+      ga = "git add";
+      gc = "git commit";
     };
     initExtra = ''
       gu() {
