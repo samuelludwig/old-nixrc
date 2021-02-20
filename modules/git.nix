@@ -17,6 +17,7 @@
     enable = true;
     userEmail = "SLudwig.dev@gmail.com";
     userName = "samuelludwig";
+    extraConfig = builtins.readFile ../configs/git/gitconfig;
   };
 
 }
