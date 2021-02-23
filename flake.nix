@@ -21,7 +21,7 @@
 
 
 
-  outputs = inputs@{ self, nixpkgs, nixos-unstable, neovim-nightly, home-manager, nur, LS_COLORS }: 
+  outputs = inputs@{ self, nixpkgs, nixos-unstable, neovim-nightly, home-manager, nur, LS_COLORS }:
     let
       ls-colors-overlay = (final: prev: { inherit LS_COLORS; });
       overlays = [ neovim-nightly.overlay ls-colors-overlay nur.overlay ];

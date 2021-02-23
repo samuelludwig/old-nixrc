@@ -17,7 +17,9 @@
     enable = true;
     userEmail = "SLudwig.dev@gmail.com";
     userName = "samuelludwig";
-    extraConfig = builtins.readFile ../configs/git/gitconfig;
+    delta.enable = true;
+    aliases = import ../configs/git/gitaliases.nix;
+    extraConfig = import ../configs/git/gitconfig.nix;
   };
 
 }
