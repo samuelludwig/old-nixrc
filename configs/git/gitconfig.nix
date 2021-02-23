@@ -1,4 +1,3 @@
-{ config, pkgs, libs, ... }:
 {
   github.user = "samuelludwig";
   pull.rebase = false;
