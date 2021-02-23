@@ -1,4 +1,3 @@
-{ config, pkgs, libs, ... }:
 {
   files = "!git diff --name-only $(git merge-base HEAD \"$REVIEW_BASE\")";
   stat = "!git diff --stat $(git merge-base HEAD \"$REVIEW_BASE\")";
