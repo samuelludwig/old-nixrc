@@ -11,5 +11,8 @@
 
     # Java
     jdk11
+
+    # PHP
+    php74
   ];
 }

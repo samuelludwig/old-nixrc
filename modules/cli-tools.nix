@@ -19,6 +19,9 @@
     htop
     wtf
     neofetch
+
+    # General utils
+    gnupg
   ];
 
   programs.bash = {
@@ -30,6 +33,8 @@
       gs = "git status";
       ga = "git add";
       gc = "git commit";
+      .. = "cd ..";
+      ... = "cd ../../";
     };
     initExtra = ''
       gu() {
