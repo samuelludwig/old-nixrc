@@ -35,6 +35,7 @@
       gc = "git commit";
       ".." = "cd ..";
       "..." = "cd ../../";
+      ex = "chmod +x"
     };
     initExtra = ''
       gu() {
