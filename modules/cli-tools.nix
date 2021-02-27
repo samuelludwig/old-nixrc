@@ -33,8 +33,8 @@
       gs = "git status";
       ga = "git add";
       gc = "git commit";
-#      ".." = "cd ..";
-#      "..." = "cd ../../";
+      .. = "cd ..";
+      ... = "cd ../../";
     };
     initExtra = ''
       gu() {
