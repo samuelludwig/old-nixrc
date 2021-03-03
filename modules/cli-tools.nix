@@ -22,6 +22,9 @@
 
     # General utils
     gnupg
+
+    # Screenshot/Screencast tools
+    maim
   ];
 
   programs.bash = {
@@ -35,7 +38,7 @@
       gc = "git commit";
       ".." = "cd ..";
       "..." = "cd ../../";
-      ex = "chmod +x"
+      exify = "chmod +x"
     };
     initExtra = ''
       gu() {
