@@ -38,7 +38,7 @@
       gc = "git commit";
       ".." = "cd ..";
       "..." = "cd ../../";
-      exify = "chmod +x"
+      exify = "chmod +x";
     };
     initExtra = ''
       gu() {
