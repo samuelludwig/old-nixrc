@@ -13,4 +13,5 @@
 
   http.postBuffer = 524288000;
   credential.helper = "store";
+  init.defaultBranch = "master";
 }
