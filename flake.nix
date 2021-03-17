@@ -26,9 +26,17 @@
       ls-colors-overlay = (final: prev: { inherit LS_COLORS; });
       overlays = [ neovim-nightly.overlay ls-colors-overlay nur.overlay ];
       hmConf = home-manager.lib.homeManagerConfiguration;
+      baseWithImports = importsList: { pkgs, ... }: {
+        xdg.configFile."nix/nix.conf".source = ./configs/nix/nix.conf;
+          nixpkgs.config = import ./configs/nix/config.nix;
+          nixpkgs.overlays = overlays;
+          imports = importsList;
+          # programs.zsh.initExtra = builtins.readFile ./configs/zsh/nixos-desktop_zshrc.zsh;
+      };
     in {
       homeConfigurations = {
 
+        # NixOS desktop config
         nixos-desktop = hmConf {
           configuration = { pkgs, ... }: {
             xdg.configFile."nix/nix.conf".source = ./configs/nix/nix.conf;
@@ -53,8 +61,17 @@
           username = "dot";
         };
 
+        # Ubuntu terminal-based config
+        ubuntu-server = hmConf {
+          configuration = baseWithImports ./server-modules.nix;
+          system = "x86_64-linux";
+          homeDirectory = "/home/dot";
+          username = "dot";
+        }
+
       };
       nixos-desktop = self.homeConfigurations.nixos-desktop.activationPackage;
+      ubuntu-server = self.homeConfigurations.ubuntu-server.activationPackage;
     };
 
 }
