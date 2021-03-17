@@ -21,7 +21,15 @@
 
 
 
-  outputs = inputs@{ self, nixpkgs, nixos-unstable, neovim-nightly, home-manager, nur, LS_COLORS }:
+  outputs = inputs@{
+    self,
+    nixpkgs,
+    nixos-unstable,
+    neovim-nightly,
+    home-manager,
+    nur,
+    LS_COLORS
+  }:
     let
       ls-colors-overlay = (final: prev: { inherit LS_COLORS; });
       overlays = [ neovim-nightly.overlay ls-colors-overlay nur.overlay ];
@@ -63,7 +71,7 @@
 
         # Ubuntu terminal-based config
         ubuntu-server = hmConf {
-          configuration = baseWithImports ./server-modules.nix;
+          configuration = baseWithImports ./roles/ubuntu-server/modules.nix;
           system = "x86_64-linux";
           homeDirectory = "/home/dot";
           username = "dot";
