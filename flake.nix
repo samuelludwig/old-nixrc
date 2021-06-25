@@ -75,11 +75,30 @@
           system = "x86_64-linux";
           homeDirectory = "/home/dot";
           username = "dot";
-        }
+        };
+
+        arch-desktop = hmConf {
+          configuration = baseWithImports [
+              ./modules/home-manager.nix
+              ./modules/python.nix
+              ./modules/neovim.nix
+              ./modules/git.nix
+              ./modules/media.nix
+              ./modules/packages.nix
+              ./modules/alacritty.nix
+              ./modules/languages.nix
+              ./modules/cli-tools.nix
+              ];
+          system = "x86_64-linux";
+          homeDirectory = "/home/dot";
+          username = "dot";
+        };
 
       };
+
       nixos-desktop = self.homeConfigurations.nixos-desktop.activationPackage;
       ubuntu-server = self.homeConfigurations.ubuntu-server.activationPackage;
+      arch-desktop = self.homeConfigurations.arch-desktop.activationPackage;
     };
 
 }
