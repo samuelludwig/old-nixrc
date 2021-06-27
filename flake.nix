@@ -36,10 +36,10 @@
       hmConf = home-manager.lib.homeManagerConfiguration;
       baseWithImports = importsList: { pkgs, ... }: {
         xdg.configFile."nix/nix.conf".source = ./configs/nix/nix.conf;
-          nixpkgs.config = import ./configs/nix/config.nix;
-          nixpkgs.overlays = overlays;
-          imports = importsList;
-          # programs.zsh.initExtra = builtins.readFile ./configs/zsh/nixos-desktop_zshrc.zsh;
+        nixpkgs.config = import ./configs/nix/config.nix;
+        nixpkgs.overlays = overlays;
+        imports = importsList;
+        # programs.zsh.initExtra = builtins.readFile ./configs/zsh/nixos-desktop_zshrc.zsh;
       };
     in {
       homeConfigurations = {
