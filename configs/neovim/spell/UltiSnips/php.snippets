@@ -1,0 +1,66 @@
+priority -50
+
+global !p
+import vim
+
+# Set g:ultisnips_php_scalar_types to 1 if you'd like to enable PHP 7's scalar types for return values
+def isPHPScalarTypesEnabled():
+	isEnabled = vim.eval("get(g:, 'ultisnips_php_scalar_types', 0)") == "1"
+	return isEnabled or re.match('<\?php\s+declare\(strict_types=[01]\);', '\n'.join(vim.current.window.buffer))
+endglobal
+
+## Snippets from SnipMate, taken from
+## https://github.com/scrooloose/snipmate-snippets.git
+
+### customs ###
+
+snippet ro "Require snip" b
+require_once __DIR__ . '/${1:relative_path}';$0
+endsnippet
+
+snippet nf "New-file setup" b
+<?php declare(strict_types=1); namespace ${1:namespace};
+${2:require_once __DIR__ . '/../vendor/autoload.php';}
+use \Siler\Functional as f;
+$0
+endsnippet
+
+snippet fn "Function snippet" b
+function ${1:name}(${2:$params}) {
+    ${3:return ':ok';}
+}
+$0
+endsnippet
+
+snippet fe "foreach snippet" b
+foreach (${1:$enumerable} as ${2:$key} => ${3:$value}) {
+    ${4:func($key, $value);}
+}
+$0
+endsnippet
+
+snippet / "Comment snippet"
+/* ${1:TODO} */
+endsnippet
+
+snippet /* "Function Comment snippet"
+/**
+ * ${1:TODO: Document this function.}
+ */
+endsnippet
+
+snippet |> "Siler Pipe snippet"
+f\pipe([
+    ${2:f1()},
+	${3:f2()},
+])${1:()};
+endsnippet
+
+snippet dotnote "Comment describing why I return status/value tuples"
+Impure functions that have a potential to fail (e.g. they call to a database
+* or other remote service) return a tuple (a two-element array), with the first
+* element being a status indicator, and the second being the actual intended
+* return value of that function, if there were no errors. If there was an
+* error, the second returned element will contain an associative array with a
+* dump of data present before the error occured.
+endsnippet

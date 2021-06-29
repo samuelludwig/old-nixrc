@@ -46,24 +46,7 @@
 
         # NixOS desktop config
         nixos-desktop = hmConf {
-          configuration = { pkgs, ... }: {
-            xdg.configFile."nix/nix.conf".source = ./configs/nix/nix.conf;
-            nixpkgs.config = import ./configs/nix/config.nix;
-            nixpkgs.overlays = overlays;
-            imports = [
-              ./modules/bspwm.nix
-              ./modules/home-manager.nix
-              ./modules/python.nix
-              ./modules/neovim.nix
-              ./modules/git.nix
-              ./modules/media.nix
-              ./modules/packages.nix
-              ./modules/alacritty.nix
-              ./modules/languages.nix
-              ./modules/cli-tools.nix
-            ];
-            # programs.zsh.initExtra = builtins.readFile ./configs/zsh/nixos-desktop_zshrc.zsh;
-          };
+          configuration = baseWithImports (import ./roles/nixos-desktop/modules.nix);
           system = "x86_64-linux";
           homeDirectory = "/home/dot";
           username = "dot";
@@ -71,24 +54,14 @@
 
         # Ubuntu terminal-based config
         ubuntu-server = hmConf {
-          configuration = baseWithImports ./roles/ubuntu-server/modules.nix;
+          configuration = baseWithImports (import ./roles/ubuntu-server/modules.nix);
           system = "x86_64-linux";
           homeDirectory = "/home/dot";
           username = "dot";
         };
 
         arch-desktop = hmConf {
-          configuration = baseWithImports [
-              ./modules/home-manager.nix
-              ./modules/python.nix
-              ./modules/neovim.nix
-              ./modules/git.nix
-              ./modules/media.nix
-              ./modules/packages.nix
-              ./modules/alacritty.nix
-              ./modules/languages.nix
-              ./modules/cli-tools.nix
-              ];
+          configuration = baseWithImports (import ./roles/arch-desktop/modules.nix);
           system = "x86_64-linux";
           homeDirectory = "/home/dot";
           username = "dot";

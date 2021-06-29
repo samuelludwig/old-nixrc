@@ -1,4 +1,5 @@
 [
+  ../../modules/bspwm.nix
   ../../modules/home-manager.nix
   ../../modules/python.nix
   ../../modules/neovim.nix
@@ -9,4 +10,3 @@
   ../../modules/languages.nix
   ../../modules/cli-tools.nix
 ]
-

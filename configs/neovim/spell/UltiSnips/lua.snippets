@@ -1,0 +1,14 @@
+snippet l "local var setup"
+local ${1:var_name} = ${2:0}
+endsnippet
+
+snippet f "local function setup"
+local function ${1:function_name} (${2:params})
+  ${3:return 0}
+end
+$0
+endsnippet
+
+snippet lam "lambda function setup"
+function (${1:lambda}) ${2:operation} end
+endsnippet
